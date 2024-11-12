@@ -5,14 +5,14 @@ import { FaCheck, FaTrash } from 'react-icons/fa'
 const TaskDone = () => {
   return (
     <HStack w={"100%"} bg={"green.100"} borderRadius={"lg"} px={"8"} py={"4"}>
-    <Text color={"green.800"} fontWeight={"semibold"} textAlign={"left"}>Nyuci Sendal</Text>
-    <IconButton color={"green.800"} bg={"green.100"} marginLeft={"auto"}>
+      <Text color={"green.800"} fontWeight={"semibold"} textAlign={"left"} as="del">Nyuci Sendal</Text>
+      <IconButton color={"green.800"} bg={"green.100"} marginLeft={"auto"}>
         <FaCheck />
-    </IconButton>
-    <IconButton color={"green.800"} bg={"green.100"}>
+      </IconButton>
+      <IconButton color={"green.800"} bg={"green.100"}>
         <FaTrash />
-    </IconButton>
-</HStack>
+      </IconButton>
+    </HStack>
   )
 }
 
