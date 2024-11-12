@@ -21,7 +21,7 @@ const LoginPage = () => {
                 <Input type="password" placeholder="Enter your password" color={"blue.800"} />
             </Box>
 
-            <Button marginTop={"4"} colorScheme="blue" w={"100%"}
+            <Button marginTop={"4"} colorScheme="purple" w={"100%"}
                 onClick={() => {
                     navigate('/')
                 }}>

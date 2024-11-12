@@ -4,7 +4,7 @@ import React from 'react'
 const Layout = ({ children }) => {
   return (
     <VStack
-    bg={"blue.100"}
+    bg={"purple.100"}
     h={"100vh"}
   >
     {children}

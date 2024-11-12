@@ -12,7 +12,7 @@ const TaskSection = () => {
         <VStack bg={"white"} minH={"70vh"} borderRadius={"lg"} w={{ lg: "35vw", base: "70vw" }} px={"16"} py={"8"}>
                 <HStack w={"100%"}>
                     <Input placeholder="Add Task" />
-                    <Button colorScheme={"blue"}><FaPlus /></Button>
+                    <Button colorScheme={"purple"}><FaPlus /></Button>
                 </HStack>
 
                 {/* Card */}
