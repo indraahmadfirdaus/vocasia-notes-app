@@ -7,6 +7,7 @@ import TaskPage from './pages/TaskPage'
 import LoginPage from './pages/LoginPage'
 import { ChakraProvider } from '@chakra-ui/react'
 import UpdateProfile from './pages/UpdateProfile'
+import Counter from './pages/Counter'
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
   {
     path: "/update-profile",
     element: <UpdateProfile />,
+  },
+  {
+    path: "/counter",
+    element: <Counter />,
   },
 ]);
 

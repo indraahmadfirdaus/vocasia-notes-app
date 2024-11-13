@@ -1,10 +1,9 @@
 import React from 'react'
 import Layout from './Layout'
 import { Box, Button, Input, Text, VStack } from '@chakra-ui/react'
-import { redirect, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const LoginPage = () => {
-
     const navigate = useNavigate()
 
     return (

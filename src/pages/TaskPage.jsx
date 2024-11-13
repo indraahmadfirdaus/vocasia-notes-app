@@ -3,8 +3,10 @@ import Layout from './Layout'
 import TaskSection from '../components/defined/TaskSection';
 import ProfileSection from '../components/defined/ProfileSection';
 import { HStack } from '@chakra-ui/react';
+import useTaskStore from '../store/task';
 
 const TaskPage = () => {
+
 
     return (
         <Layout>
