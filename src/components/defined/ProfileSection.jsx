@@ -1,14 +1,28 @@
 import { VStack, Input, Button, HStack, Text, Box, IconButton, Avatar } from "@chakra-ui/react"
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useNavigate } from "react-router-dom"
+import useUserStore from "../../store/user"
+import { userApi } from "../../api/userApi"
 
 const ProfileSection = () => {
     const navigate = useNavigate()
+    const user = useUserStore(state => state.user)
+    const fetchProfile = useUserStore(state => state.fetchProfile)
+
+
+    const onHandleSignOut = () => {
+        userApi.signOut()
+        navigate('/login')
+    }
+
+    useEffect(() => {
+        fetchProfile()
+    }, [])
 
     return (
         <VStack
             minH="60vh"
-            w="60"
+            minW="60"
             bg="white"
             borderRadius="lg"
             alignItems="center"
@@ -17,11 +31,11 @@ const ProfileSection = () => {
             padding={4}
         >
             {/* Avatar */}
-            <Avatar size="xl" name="User Name" src="https://bit.ly/dan-abramov" />
+            <Avatar size="xl" name="User Name" src={user?.photo_url} />
 
             {/* Welcome text with bold name */}
             <Text fontSize="lg">
-                Welcome Back, <Text as="span" fontWeight="bold">Name!</Text>
+                Welcome Back, <Text as="span" fontWeight="bold">{user?.name}</Text>
             </Text>
 
             {/* Edit Profile Button */}
@@ -32,9 +46,7 @@ const ProfileSection = () => {
             </Button>
 
             {/* Sign Out Button (Red) */}
-            <Button colorScheme="red" variant="solid" w="70%" onClick={() => {
-                navigate('/login')
-            }}>
+            <Button colorScheme="red" variant="solid" w="70%" onClick={onHandleSignOut}>
                 Sign Out
             </Button>
         </VStack>

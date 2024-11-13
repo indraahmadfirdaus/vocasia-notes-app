@@ -1,20 +1,17 @@
 import { create } from "zustand";
+import { taskApi } from "../api/taskApi";
 
 const useTaskStore = create((set) => ({
     tasks: [],
-    addTask: (newTask) => set((state) => ({
-        tasks: [...state.tasks, newTask]
-    })),
-    doneTask: (id) => set((state) => {
-        const foundTask = state.tasks.find(task => task.id === id)
-        foundTask.isDone = true
-
-        const filteredTask = state.tasks.filter(task => task.id !== id)
-
-        return {
-            tasks: [...filteredTask, foundTask]
+    fetchTasks: async () => {
+        try {
+            const data = await taskApi.getTasks()
+            set({ tasks: data })
+        } catch (error) {
+            console.log(error);
+            throw error
         }
-    })
+    }
 }))
 
 // SPREAD OPERATOR

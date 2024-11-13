@@ -10,6 +10,21 @@ const login = async (email, password) => {
     }
 }
 
+const getProfile = async () => {
+    try {
+        const { data } = await axiosInstance.get('/users/profile')
+        return data.data
+    } catch (error) {
+        throw error
+    }
+}
+
+const signOut = async () => {
+    localStorage.removeItem('token')
+}
+
 export const userApi = {
-    login
+    login,
+    getProfile,
+    signOut
 }
