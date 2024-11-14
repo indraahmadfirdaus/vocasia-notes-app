@@ -1,13 +1,12 @@
 import { VStack, Input, Button, HStack, Text, Box, IconButton, Avatar } from "@chakra-ui/react"
 import React, { useEffect } from 'react'
 import { useNavigate } from "react-router-dom"
-import useUserStore from "../../store/user"
 import { userApi } from "../../api/userApi"
+import useUserStore from "../../store/user"
 
 const ProfileSection = () => {
     const navigate = useNavigate()
-    const user = useUserStore(state => state.user)
-    const fetchProfile = useUserStore(state => state.fetchProfile)
+    const user = useUserStore()
 
 
     const onHandleSignOut = () => {
