@@ -6,8 +6,8 @@ import useUserStore from "../../store/user"
 
 const ProfileSection = () => {
     const navigate = useNavigate()
-    const user = useUserStore()
-
+    const user = useUserStore(state => state.user)
+    const fetchProfile = useUserStore(state => state.fetchProfile)
 
     const onHandleSignOut = () => {
         userApi.signOut()
