@@ -19,6 +19,19 @@ const getProfile = async () => {
     }
 }
 
+const updateProfile = async (formData) => {
+    try {
+        const { data } = await axiosInstance.put('/users/profile', formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        })
+        return data
+    } catch (error) {
+        throw error
+    }
+}
+
 const signOut = async () => {
     localStorage.removeItem('token')
 }
@@ -26,5 +39,6 @@ const signOut = async () => {
 export const userApi = {
     login,
     getProfile,
-    signOut
+    signOut,
+    updateProfile
 }
