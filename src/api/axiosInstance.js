@@ -34,6 +34,11 @@ axiosInstance.interceptors.response.use(function (response) {
         localStorage.removeItem('token')
     }
 
+    if(error.response && error.response.status === 403) {
+      // untuk forbidden, diapain
+      localStorage.removeItem('token')
+    }
+
 
     return Promise.reject(error);
   });

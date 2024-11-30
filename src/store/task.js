@@ -1,18 +1,22 @@
 import { create } from "zustand";
 import { taskApi } from "../api/taskApi";
+import { devtools } from "zustand/middleware";
 
-const useTaskStore = create((set) => ({
-    tasks: [],
-    fetchTasks: async () => {
-        try {
-            const data = await taskApi.getTasks()
-            set({ tasks: data })
-        } catch (error) {
-            console.log(error);
-            throw error
-        }
-    }
-}))
+const useTaskStore = create(
+    devtools(
+        (set) => ({
+            tasks: [],
+            fetchTasks: async () => {
+                try {
+                    const data = await taskApi.getTasks()
+                    set({ tasks: data })
+                } catch (error) {
+                    console.log(error);
+                    throw error
+                }
+            }
+        }))
+    )
 
 // SPREAD OPERATOR
 // SPREAD ARRAY
