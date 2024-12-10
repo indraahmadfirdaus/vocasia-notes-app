@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import Layout from './Layout'
-import { Box, Button, Input, Text, useToast, VStack } from '@chakra-ui/react'
-import { useNavigate } from 'react-router-dom';
+import { Box, Button, Input, Link, Text, useToast, VStack } from '@chakra-ui/react'
+import { Link as RouterLink, useNavigate } from 'react-router-dom';
 import { userApi } from '../api/userApi';
 
 const LoginPage = () => {
@@ -20,7 +20,7 @@ const LoginPage = () => {
             navigate('/')
             setInputEmail('')
             setInputPassword('')
-    
+
             toast({
                 title: 'Login Berhasil.',
                 status: 'success',
@@ -30,14 +30,14 @@ const LoginPage = () => {
             })
 
         } catch (error) {
-            
-        toast({
-            title: 'Username atau Password salah',
-            status: 'error',
-            duration: 3000,
-            isClosable: true,
-            position: 'top-right'
-        })
+
+            toast({
+                title: 'Username atau Password salah',
+                status: 'error',
+                duration: 3000,
+                isClosable: true,
+                position: 'top-right'
+            })
         }
 
     }
@@ -64,6 +64,12 @@ const LoginPage = () => {
                     onClick={onHandleLogin}>
                     Sign In
                 </Button>
+                <Text marginTop={4}>
+                    Don't have an account?{' '}
+                    <Link as={RouterLink} to="/register" color="blue.500">
+                        Register here
+                    </Link>
+                </Text>
             </VStack >
         </Layout>
     )

@@ -9,29 +9,29 @@ import { ChakraProvider } from '@chakra-ui/react'
 import UpdateProfile from './pages/UpdateProfile'
 import Counter from './pages/Counter'
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <TaskPage />,
-  },
-  {
-    path: "/login",
-    element: <LoginPage />,
-  },
-  {
-    path: "/update-profile",
-    element: <UpdateProfile />,
-  },
-  {
-    path: "/counter",
-    element: <Counter />,
-  },
-]);
+// const router = createBrowserRouter([
+//   {
+//     path: "/",
+//     element: <TaskPage />,
+//   },
+//   {
+//     path: "/login",
+//     element: <LoginPage />,
+//   },
+//   {
+//     path: "/update-profile",
+//     element: <UpdateProfile />,
+//   },
+//   {
+//     path: "/counter",
+//     element: <Counter />,
+//   },
+// ]);
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <ChakraProvider>
-      <RouterProvider router={router} />
+      {/* <RouterProvider router={router} /> */}
       <App />
     </ChakraProvider>
   </StrictMode>,
